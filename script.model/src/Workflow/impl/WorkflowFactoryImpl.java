@@ -60,6 +60,7 @@ public class WorkflowFactoryImpl extends EFactoryImpl implements WorkflowFactory
 			case WorkflowPackage.PARAMETER: return createParameter();
 			case WorkflowPackage.SCRIPT: return createScript();
 			case WorkflowPackage.OPTION: return createOption();
+			case WorkflowPackage.MAIN_WORKFLOW: return createMainWorkflow();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -103,6 +104,16 @@ public class WorkflowFactoryImpl extends EFactoryImpl implements WorkflowFactory
 	public Option createOption() {
 		OptionImpl option = new OptionImpl();
 		return option;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MainWorkflow createMainWorkflow() {
+		MainWorkflowImpl mainWorkflow = new MainWorkflowImpl();
+		return mainWorkflow;
 	}
 
 	/**

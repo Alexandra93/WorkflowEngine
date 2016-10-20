@@ -64,6 +64,7 @@ public class CommandItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -91,6 +92,28 @@ public class CommandItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Command_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Command_description_feature", "_UI_Command_type"),
+				 WorkflowPackage.Literals.COMMAND__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -102,7 +125,7 @@ public class CommandItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(WorkflowPackage.Literals.COMMAND__PARAMETERS);
+			childrenFeatures.add(WorkflowPackage.Literals.COMMAND__COMMAND_PARAMETERS);
 			childrenFeatures.add(WorkflowPackage.Literals.COMMAND__OPTIONS);
 		}
 		return childrenFeatures;
@@ -160,9 +183,10 @@ public class CommandItemProvider
 
 		switch (notification.getFeatureID(Command.class)) {
 			case WorkflowPackage.COMMAND__NAME:
+			case WorkflowPackage.COMMAND__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case WorkflowPackage.COMMAND__PARAMETERS:
+			case WorkflowPackage.COMMAND__COMMAND_PARAMETERS:
 			case WorkflowPackage.COMMAND__OPTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -183,7 +207,7 @@ public class CommandItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WorkflowPackage.Literals.COMMAND__PARAMETERS,
+				(WorkflowPackage.Literals.COMMAND__COMMAND_PARAMETERS,
 				 WorkflowFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add

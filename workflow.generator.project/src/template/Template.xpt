@@ -1,0 +1,16 @@
+«IMPORT Workflow»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE main FOR Workflow::Script-»
+
+«FILE name+".sh"-»
+#Generated with my awesome tool in «timestamp()».
+«FOREACH commands AS c»
+	«c.description»
+	«c.name» «FOREACH c.parameters AS p» «p.name» «ENDFOREACH» «FOREACH c.options AS o» «o.name» «o.parameters.name» «ENDFOREACH»
+«ENDFOREACH»
+
+«ENDFILE»
+
+«ENDDEFINE»

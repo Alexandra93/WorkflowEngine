@@ -102,7 +102,7 @@ public class OptionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(WorkflowPackage.Literals.OPTION__PARAMETERS);
+			childrenFeatures.add(WorkflowPackage.Literals.OPTION__OPTION_PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -161,7 +161,7 @@ public class OptionItemProvider
 			case WorkflowPackage.OPTION__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case WorkflowPackage.OPTION__PARAMETERS:
+			case WorkflowPackage.OPTION__OPTION_PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -181,7 +181,7 @@ public class OptionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WorkflowPackage.Literals.OPTION__PARAMETERS,
+				(WorkflowPackage.Literals.OPTION__OPTION_PARAMETERS,
 				 WorkflowFactory.eINSTANCE.createParameter()));
 	}
 

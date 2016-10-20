@@ -3,6 +3,7 @@
 package Workflow.impl;
 
 import Workflow.Command;
+import Workflow.MainWorkflow;
 import Workflow.Option;
 import Workflow.Parameter;
 import Workflow.Script;
@@ -50,6 +51,13 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * @generated
 	 */
 	private EClass optionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mainWorkflowEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -135,7 +143,7 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCommand_Parameters() {
+	public EReference getCommand_CommandParameters() {
 		return (EReference)commandEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -146,6 +154,15 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 */
 	public EReference getCommand_Options() {
 		return (EReference)commandEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommand_Description() {
+		return (EAttribute)commandEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -216,8 +233,26 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOption_Parameters() {
+	public EReference getOption_OptionParameters() {
 		return (EReference)optionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMainWorkflow() {
+		return mainWorkflowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMainWorkflow_Scripts() {
+		return (EReference)mainWorkflowEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -250,8 +285,9 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		// Create classes and their features
 		commandEClass = createEClass(COMMAND);
 		createEAttribute(commandEClass, COMMAND__NAME);
-		createEReference(commandEClass, COMMAND__PARAMETERS);
+		createEReference(commandEClass, COMMAND__COMMAND_PARAMETERS);
 		createEReference(commandEClass, COMMAND__OPTIONS);
+		createEAttribute(commandEClass, COMMAND__DESCRIPTION);
 
 		parameterEClass = createEClass(PARAMETER);
 		createEAttribute(parameterEClass, PARAMETER__NAME);
@@ -262,7 +298,10 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 
 		optionEClass = createEClass(OPTION);
 		createEAttribute(optionEClass, OPTION__NAME);
-		createEReference(optionEClass, OPTION__PARAMETERS);
+		createEReference(optionEClass, OPTION__OPTION_PARAMETERS);
+
+		mainWorkflowEClass = createEClass(MAIN_WORKFLOW);
+		createEReference(mainWorkflowEClass, MAIN_WORKFLOW__SCRIPTS);
 	}
 
 	/**
@@ -297,8 +336,9 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		// Initialize classes, features, and operations; add parameters
 		initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommand_Name(), ecorePackage.getEString(), "name", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCommand_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommand_CommandParameters(), this.getParameter(), null, "commandParameters", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Options(), this.getOption(), null, "options", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommand_Description(), ecorePackage.getEString(), "description", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -309,7 +349,10 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 
 		initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOption_Name(), ecorePackage.getEString(), "name", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOption_Parameters(), this.getParameter(), null, "parameters", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOption_OptionParameters(), this.getParameter(), null, "optionParameters", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mainWorkflowEClass, MainWorkflow.class, "MainWorkflow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMainWorkflow_Scripts(), this.getScript(), null, "scripts", null, 0, 5, MainWorkflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

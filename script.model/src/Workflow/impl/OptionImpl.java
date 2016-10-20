@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link Workflow.impl.OptionImpl#getName <em>Name</em>}</li>
- *   <li>{@link Workflow.impl.OptionImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link Workflow.impl.OptionImpl#getOptionParameters <em>Option Parameters</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,14 +51,14 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
+	 * The cached value of the '{@link #getOptionParameters() <em>Option Parameters</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParameters()
+	 * @see #getOptionParameters()
 	 * @generated
 	 * @ordered
 	 */
-	protected Parameter parameters;
+	protected Parameter optionParameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,8 +105,8 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Parameter getParameters() {
-		return parameters;
+	public Parameter getOptionParameters() {
+		return optionParameters;
 	}
 
 	/**
@@ -114,11 +114,11 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetParameters(Parameter newParameters, NotificationChain msgs) {
-		Parameter oldParameters = parameters;
-		parameters = newParameters;
+	public NotificationChain basicSetOptionParameters(Parameter newOptionParameters, NotificationChain msgs) {
+		Parameter oldOptionParameters = optionParameters;
+		optionParameters = newOptionParameters;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WorkflowPackage.OPTION__PARAMETERS, oldParameters, newParameters);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WorkflowPackage.OPTION__OPTION_PARAMETERS, oldOptionParameters, newOptionParameters);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -129,18 +129,18 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParameters(Parameter newParameters) {
-		if (newParameters != parameters) {
+	public void setOptionParameters(Parameter newOptionParameters) {
+		if (newOptionParameters != optionParameters) {
 			NotificationChain msgs = null;
-			if (parameters != null)
-				msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WorkflowPackage.OPTION__PARAMETERS, null, msgs);
-			if (newParameters != null)
-				msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WorkflowPackage.OPTION__PARAMETERS, null, msgs);
-			msgs = basicSetParameters(newParameters, msgs);
+			if (optionParameters != null)
+				msgs = ((InternalEObject)optionParameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WorkflowPackage.OPTION__OPTION_PARAMETERS, null, msgs);
+			if (newOptionParameters != null)
+				msgs = ((InternalEObject)newOptionParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WorkflowPackage.OPTION__OPTION_PARAMETERS, null, msgs);
+			msgs = basicSetOptionParameters(newOptionParameters, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WorkflowPackage.OPTION__PARAMETERS, newParameters, newParameters));
+			eNotify(new ENotificationImpl(this, Notification.SET, WorkflowPackage.OPTION__OPTION_PARAMETERS, newOptionParameters, newOptionParameters));
 	}
 
 	/**
@@ -151,8 +151,8 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case WorkflowPackage.OPTION__PARAMETERS:
-				return basicSetParameters(null, msgs);
+			case WorkflowPackage.OPTION__OPTION_PARAMETERS:
+				return basicSetOptionParameters(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -167,8 +167,8 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option {
 		switch (featureID) {
 			case WorkflowPackage.OPTION__NAME:
 				return getName();
-			case WorkflowPackage.OPTION__PARAMETERS:
-				return getParameters();
+			case WorkflowPackage.OPTION__OPTION_PARAMETERS:
+				return getOptionParameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -184,8 +184,8 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option {
 			case WorkflowPackage.OPTION__NAME:
 				setName((String)newValue);
 				return;
-			case WorkflowPackage.OPTION__PARAMETERS:
-				setParameters((Parameter)newValue);
+			case WorkflowPackage.OPTION__OPTION_PARAMETERS:
+				setOptionParameters((Parameter)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -202,8 +202,8 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option {
 			case WorkflowPackage.OPTION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case WorkflowPackage.OPTION__PARAMETERS:
-				setParameters((Parameter)null);
+			case WorkflowPackage.OPTION__OPTION_PARAMETERS:
+				setOptionParameters((Parameter)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -219,8 +219,8 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option {
 		switch (featureID) {
 			case WorkflowPackage.OPTION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case WorkflowPackage.OPTION__PARAMETERS:
-				return parameters != null;
+			case WorkflowPackage.OPTION__OPTION_PARAMETERS:
+				return optionParameters != null;
 		}
 		return super.eIsSet(featureID);
 	}

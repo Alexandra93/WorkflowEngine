@@ -76,13 +76,13 @@ public interface WorkflowPackage extends EPackage {
 	int COMMAND__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Command Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__PARAMETERS = 1;
+	int COMMAND__COMMAND_PARAMETERS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -94,13 +94,22 @@ public interface WorkflowPackage extends EPackage {
 	int COMMAND__OPTIONS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND__DESCRIPTION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Command</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND_FEATURE_COUNT = 3;
+	int COMMAND_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Command</em>' class.
@@ -214,13 +223,13 @@ public interface WorkflowPackage extends EPackage {
 	int OPTION__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference.
+	 * The feature id for the '<em><b>Option Parameters</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPTION__PARAMETERS = 1;
+	int OPTION__OPTION_PARAMETERS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Option</em>' class.
@@ -239,6 +248,43 @@ public interface WorkflowPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link Workflow.impl.MainWorkflowImpl <em>Main Workflow</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Workflow.impl.MainWorkflowImpl
+	 * @see Workflow.impl.WorkflowPackageImpl#getMainWorkflow()
+	 * @generated
+	 */
+	int MAIN_WORKFLOW = 4;
+
+	/**
+	 * The feature id for the '<em><b>Scripts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAIN_WORKFLOW__SCRIPTS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Main Workflow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAIN_WORKFLOW_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Main Workflow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAIN_WORKFLOW_OPERATION_COUNT = 0;
 
 
 	/**
@@ -263,15 +309,15 @@ public interface WorkflowPackage extends EPackage {
 	EAttribute getCommand_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link Workflow.Command#getParameters <em>Parameters</em>}'.
+	 * Returns the meta object for the containment reference list '{@link Workflow.Command#getCommandParameters <em>Command Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see Workflow.Command#getParameters()
+	 * @return the meta object for the containment reference list '<em>Command Parameters</em>'.
+	 * @see Workflow.Command#getCommandParameters()
 	 * @see #getCommand()
 	 * @generated
 	 */
-	EReference getCommand_Parameters();
+	EReference getCommand_CommandParameters();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link Workflow.Command#getOptions <em>Options</em>}'.
@@ -283,6 +329,17 @@ public interface WorkflowPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCommand_Options();
+
+	/**
+	 * Returns the meta object for the attribute '{@link Workflow.Command#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see Workflow.Command#getDescription()
+	 * @see #getCommand()
+	 * @generated
+	 */
+	EAttribute getCommand_Description();
 
 	/**
 	 * Returns the meta object for class '{@link Workflow.Parameter <em>Parameter</em>}'.
@@ -359,15 +416,36 @@ public interface WorkflowPackage extends EPackage {
 	EAttribute getOption_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link Workflow.Option#getParameters <em>Parameters</em>}'.
+	 * Returns the meta object for the containment reference '{@link Workflow.Option#getOptionParameters <em>Option Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Parameters</em>'.
-	 * @see Workflow.Option#getParameters()
+	 * @return the meta object for the containment reference '<em>Option Parameters</em>'.
+	 * @see Workflow.Option#getOptionParameters()
 	 * @see #getOption()
 	 * @generated
 	 */
-	EReference getOption_Parameters();
+	EReference getOption_OptionParameters();
+
+	/**
+	 * Returns the meta object for class '{@link Workflow.MainWorkflow <em>Main Workflow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Main Workflow</em>'.
+	 * @see Workflow.MainWorkflow
+	 * @generated
+	 */
+	EClass getMainWorkflow();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link Workflow.MainWorkflow#getScripts <em>Scripts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Scripts</em>'.
+	 * @see Workflow.MainWorkflow#getScripts()
+	 * @see #getMainWorkflow()
+	 * @generated
+	 */
+	EReference getMainWorkflow_Scripts();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -411,12 +489,12 @@ public interface WorkflowPackage extends EPackage {
 		EAttribute COMMAND__NAME = eINSTANCE.getCommand_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Command Parameters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMMAND__PARAMETERS = eINSTANCE.getCommand_Parameters();
+		EReference COMMAND__COMMAND_PARAMETERS = eINSTANCE.getCommand_CommandParameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
@@ -425,6 +503,14 @@ public interface WorkflowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMMAND__OPTIONS = eINSTANCE.getCommand_Options();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMAND__DESCRIPTION = eINSTANCE.getCommand_Description();
 
 		/**
 		 * The meta object literal for the '{@link Workflow.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -489,12 +575,30 @@ public interface WorkflowPackage extends EPackage {
 		EAttribute OPTION__NAME = eINSTANCE.getOption_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Option Parameters</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OPTION__PARAMETERS = eINSTANCE.getOption_Parameters();
+		EReference OPTION__OPTION_PARAMETERS = eINSTANCE.getOption_OptionParameters();
+
+		/**
+		 * The meta object literal for the '{@link Workflow.impl.MainWorkflowImpl <em>Main Workflow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see Workflow.impl.MainWorkflowImpl
+		 * @see Workflow.impl.WorkflowPackageImpl#getMainWorkflow()
+		 * @generated
+		 */
+		EClass MAIN_WORKFLOW = eINSTANCE.getMainWorkflow();
+
+		/**
+		 * The meta object literal for the '<em><b>Scripts</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAIN_WORKFLOW__SCRIPTS = eINSTANCE.getMainWorkflow_Scripts();
 
 	}
 

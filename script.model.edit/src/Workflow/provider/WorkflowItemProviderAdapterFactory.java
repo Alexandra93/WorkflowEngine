@@ -164,6 +164,29 @@ public class WorkflowItemProviderAdapterFactory extends WorkflowAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link Workflow.MainWorkflow} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MainWorkflowItemProvider mainWorkflowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link Workflow.MainWorkflow}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMainWorkflowAdapter() {
+		if (mainWorkflowItemProvider == null) {
+			mainWorkflowItemProvider = new MainWorkflowItemProvider(this);
+		}
+
+		return mainWorkflowItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +289,7 @@ public class WorkflowItemProviderAdapterFactory extends WorkflowAdapterFactory i
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
 		if (scriptItemProvider != null) scriptItemProvider.dispose();
 		if (optionItemProvider != null) optionItemProvider.dispose();
+		if (mainWorkflowItemProvider != null) mainWorkflowItemProvider.dispose();
 	}
 
 }

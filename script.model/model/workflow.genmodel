@@ -8,8 +8,9 @@
   <genPackages prefix="Workflow" disposableProviderFactory="true" ecorePackage="model.ecore#/">
     <genClasses ecoreClass="model.ecore#//Command">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Command/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Command/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Command/commandParameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Command/options"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Command/description"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Parameter/name"/>
@@ -20,7 +21,10 @@
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Option">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Option/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Option/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Option/optionParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//MainWorkflow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//MainWorkflow/scripts"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

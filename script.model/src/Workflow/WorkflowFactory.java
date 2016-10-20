@@ -58,6 +58,15 @@ public interface WorkflowFactory extends EFactory {
 	Option createOption();
 
 	/**
+	 * Returns a new object of class '<em>Main Workflow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Main Workflow</em>'.
+	 * @generated
+	 */
+	MainWorkflow createMainWorkflow();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

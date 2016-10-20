@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link Workflow.Option#getName <em>Name</em>}</li>
- *   <li>{@link Workflow.Option#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link Workflow.Option#getOptionParameters <em>Option Parameters</em>}</li>
  * </ul>
  *
  * @see Workflow.WorkflowPackage#getOption()
@@ -49,29 +49,29 @@ public interface Option extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Option Parameters</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameters</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Option Parameters</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameters</em>' containment reference.
-	 * @see #setParameters(Parameter)
-	 * @see Workflow.WorkflowPackage#getOption_Parameters()
+	 * @return the value of the '<em>Option Parameters</em>' containment reference.
+	 * @see #setOptionParameters(Parameter)
+	 * @see Workflow.WorkflowPackage#getOption_OptionParameters()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Parameter getParameters();
+	Parameter getOptionParameters();
 
 	/**
-	 * Sets the value of the '{@link Workflow.Option#getParameters <em>Parameters</em>}' containment reference.
+	 * Sets the value of the '{@link Workflow.Option#getOptionParameters <em>Option Parameters</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parameters</em>' containment reference.
-	 * @see #getParameters()
+	 * @param value the new value of the '<em>Option Parameters</em>' containment reference.
+	 * @see #getOptionParameters()
 	 * @generated
 	 */
-	void setParameters(Parameter value);
+	void setOptionParameters(Parameter value);
 
 } // Option

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="workflow" version="11.0.0.201601261200">
+  <ownedViewpoints name="Script" modelFileExtension="workflow">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Workflow Diagram" domainClass="Workflow.MainWorkflow">
+      <defaultLayer name="Default">
+        <containerMappings name="Script" domainClass="Workflow.Script">
+          <subContainerMappings name="Command" semanticCandidatesExpression="feature:eContents" domainClass="Workflow.Command">
+            <subNodeMappings name="Parameter" semanticCandidatesExpression="[self.eContainer().eAllContents()->selectByKind(Parameter)/]" domainClass="Workflow.Parameter">
+              <style xsi:type="style:LozengeNodeDescription" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              </style>
+            </subNodeMappings>
+            <subContainerMappings name="Option" semanticCandidatesExpression="[self.options/]" domainClass="Workflow.Option" reusedNodeMappings="//@ownedViewpoints[name='Script']/@ownedRepresentations[name='Workflow%20Diagram']/@defaultLayer/@containerMappings[name='Script']/@subContainerMappings[name='Command']/@subNodeMappings[name='Parameter']">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Option Diagram" domainClass="Workflow.Option">
+      <defaultLayer name="Default"/>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>
