@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Script
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:model="http://www.example.org/model"
+    xsi:schemaLocation="http://www.example.org/model metamodel/metamodel.ecore"
+    name="S1">
+  <commands
+      name="copy"
+      description="#Description of the statement">
+    <options
+        name="-source">
+      <parameters
+          name="C:\orig.txt"/>
+    </options>
+    <options
+        name="-dest">
+      <parameters
+          name="C:\dest.txt"/>
+    </options>
+  </commands>
+  <commands>
+    <options>
+      <parameters/>
+    </options>
+  </commands>
+  <commands>
+    <parameters/>
+  </commands>
+</model:Script>
